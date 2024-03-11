@@ -11,6 +11,9 @@ builder.Services.AddControllers();
 builder.Services.AddDbContext<MoviesContext>(options =>
         options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+builder.Services.AddDbContext<SeriesContext>(options =>
+        options.UseSqlServer(builder.Configuration.GetConnectionString("SeriesConnection")));
+
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
