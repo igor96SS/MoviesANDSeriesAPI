@@ -15,11 +15,21 @@ builder.Services.AddDbContext<SeriesContext>(options =>
         options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
+
+app.UseCors(builder =>
+{
+    builder
+        .SetIsOriginAllowed(_ => true) // Permitir todas as origens
+        .AllowAnyMethod()
+        .AllowAnyHeader()
+        .AllowCredentials(); // Se necessário
+});
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
