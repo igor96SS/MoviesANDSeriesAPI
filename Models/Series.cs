@@ -10,7 +10,7 @@ namespace Movies_SeriesAPI.Models
         public string SerieName { get; set; }
         public int? StartYear { get; set; }
         public int? EndYear { get; set; }
-        public int? OwnSeason { get; set;}
+        public bool OwnSeason { get; set;}
         public int? LastSeason { get; set;}
         public int? LastEpisode { get; set; }
     }
